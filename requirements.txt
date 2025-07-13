@@ -1,4 +1,13 @@
-matplotlib
-cv2
-numpy
+streamlit
+torch
+torchvision
 tensorflow
+opencv-python
+numpy
+Pillow
+matplotlib
+seaborn
+pandas
+tqdm
+scikit-learn
+cv2
