@@ -10,4 +10,3 @@ seaborn
 pandas
 tqdm
 scikit-learn
-cv2
