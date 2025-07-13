@@ -1,6 +1,6 @@
 streamlit
-torch
-torchvision
+cohere
+einops
 tensorflow
 opencv-python
 numpy
