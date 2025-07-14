@@ -63,8 +63,14 @@ if section == "Upload Your Plant":
     st.markdown("### **Plant Doctor**")
     st.markdown("_Upload your crop image below_")
     st.markdown("**Upload your leaf image here:**")
+# Initialize key for uploader
+    if "uploader_key" not in st.session_state:
+        st.session_state.uploader_key = 0
 
-    uploaded_file = st.file_uploader("Upload", type=["jpg", "png", "jpeg"], label_visibility="collapsed")
+        # File uploader with key
+    uploaded_file = st.file_uploader("Upload", type=["jpg", "png", "jpeg"], key=st.session_state.uploader_key, label_visibility="collapsed")
+
+    # Store uploaded file in session
     if uploaded_file:
         st.session_state.upload_state["file"] = uploaded_file
 
@@ -105,9 +111,17 @@ if section == "Upload Your Plant":
                     advice = cohere_chat(f"Suggest a treatment for: {st.session_state.upload_state['label']}")
                     st.success(f"🧪 Suggested Remedy: {advice}")
 
+                    # RESET BUTTON
         if st.button("🔁 Reset Upload Section"):
-            st.session_state.upload_state = {"file": None, "prediction": None, "confidence": None, "label": None}
+            st.session_state.upload_state = {
+                "file": None,
+                "prediction": None,
+                "confidence": None,
+                "label": None
+            }
+            st.session_state.uploader_key += 1  # Force Streamlit to re-render uploader with new key
             st.rerun()
+
 
     user_text = st.chat_input("Ask about your plant (e.g., 'Why are my leaves yellow?')")
     if user_text:
