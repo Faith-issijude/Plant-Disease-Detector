@@ -46,16 +46,15 @@ Supports 15 common crop conditions including:
    cd plant-doctor-ai
 
 2. **Create and activate a virtual environment**
-  ```bash
    python -m venv venv
    source venv/bin/activate  # or venv\Scripts\activate on Windows
+---
 
 3. **Install requirements**
-  ```bash
+
    pip install -r requirements.txt
 
 4. **Run the app**
-  ```bash
    streamlit run main.py
 
 ## Example
@@ -77,3 +76,5 @@ This project is licensed under the MIT License. See LICENSE for more information
 PlantVillage Dataset
 Cohere Language API
 TensorFlow, Streamlit, OpenCV, and the ML community 🌍
+
+
